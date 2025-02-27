@@ -11,7 +11,6 @@
     <string-array name="config_ignoredAuxCameraIds">
         <item>5</item>
         <item>6</item>
-        <item>7</item>
         <item>8</item>
         <item>9</item>
     </string-array>

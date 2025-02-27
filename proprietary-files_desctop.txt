@@ -2,7 +2,6 @@
 
 # Current blobs with ELF checks disabled:
 # audio.primary.taro depends on vendor.qti.hardware.pal@1.0-impl, which is a gnu makefile target
-# libalAILDC, libalhLDC, libalLDC, libmorpho_ubwc, libTrueSight depends on NDK libnativewindow and build is unable to resolve its symbols
 # libar-pal depends on libagmclient, which is a gnu makefile target
 
 # ACDB
@@ -90,12 +89,14 @@ vendor/lib/rfsa/adsp/misound_karaokemix_res.bin
 vendor/lib/rfsa/adsp/misound_res_headphone.bin
 vendor/lib/rfsa/adsp/misound_res_spk.bin
 vendor/lib/rfsa/adsp/misound_res_spk4ch.bin
+vendor/lib64/camera/libQnnHtpV69Skel.so:vendor/lib/rfsa/adsp/libQnnHtpV69Skel.so
 
 # Audio configs
 vendor/etc/audio/sku_diwali/mixer_paths_diwali_idp.xml
 vendor/etc/audio/sku_diwali/mixer_paths_overlay_dynamic.xml
 vendor/etc/audio/sku_diwali/mixer_paths_overlay_static.xml
 vendor/etc/audio/sku_diwali/resourcemanager_diwali_idp.xml
+vendor/etc/audio/sku_diwali/resourcemanager_diwali_idp_sku1.xml
 vendor/etc/audio_cloud_control_white_list.xml
 vendor/etc/backend_conf.xml
 vendor/etc/card-defs.xml
@@ -103,11 +104,21 @@ vendor/etc/kvh2xml.xml
 vendor/etc/microphone_characteristics.xml
 vendor/etc/usecaseKvManager.xml
 
+# Audio policy
+vendor/etc/audio_policy_engine_configuration_mi.xml:vendor/etc/audio_policy_engine_configuration.xml
+vendor/etc/audio_policy_engine_default_stream_volumes.xml
+vendor/etc/audio_policy_engine_product_strategies.xml
+vendor/etc/audio_policy_engine_stream_volumes.xml
+
 # Audio
 vendor/lib64/hw/audio.primary.taro.so;DISABLE_CHECKELF
 vendor/lib64/libagm.so
 vendor/lib64/libar-pal.so;DISABLE_CHECKELF
+vendor/lib64/libawcal.so;DISABLE_CHECKELF
 vendor/lib64/libkaraokepal.so
+system/app/ViPER4AndroidFX/ViPER4AndroidFX.apk;OVERRIDES=AudioFX
+vendor/lib/soundfx/libv4a_re.so
+vendor/lib64/soundfx/libv4a_re.so
 
 # Audio firmware
 vendor/firmware/aw882xx_acf.bin
@@ -117,6 +128,7 @@ vendor/bin/batterysecret
 vendor/etc/init/hw/init.batterysecret.rc
 
 # Camera
+vendor/lib64/camera/com.qti.tuned.default.bin
 vendor/bin/hw/vendor.qti.camera.provider@2.7-service_64
 vendor/bin/hw/vendor.xiaomi.hardware.quickcamera@1.0-service
 vendor/etc/camera/102_SummerDay.png
@@ -987,17 +999,17 @@ vendor/lib64/libMiStereoFactoryCalibAnalyzeBin_qual.so
 vendor/lib64/libQnnHtpAltPrepV69Stub.so
 vendor/lib64/libSNPE.so
 vendor/lib64/libSnpeHtpV69Stub.so
-vendor/lib64/libTrueSight.so;DISABLE_CHECKELF
+vendor/lib64/libTrueSight.so
 vendor/lib64/libXMFaceFocus.so
 vendor/lib64/libaidenoiser.so
-vendor/lib64/libalAILDC.so;DISABLE_CHECKELF
+vendor/lib64/libalAILDC.so
 vendor/lib64/libalAI_Seg.so
 vendor/lib64/libalCFR.so
-vendor/lib64/libalLDC.so;DISABLE_CHECKELF
+vendor/lib64/libalLDC.so
 vendor/lib64/libalNN.so
 vendor/lib64/libalNN_engine.so
 vendor/lib64/libalNN_gpu.so
-vendor/lib64/libalhLDC.so;DISABLE_CHECKELF
+vendor/lib64/libalhLDC.so
 vendor/lib64/libanc_dc_base.so
 vendor/lib64/libanc_hdr.so
 vendor/lib64/libancbase.so
@@ -1091,7 +1103,7 @@ vendor/lib64/libmmcamera_lscv35.so
 vendor/lib64/libmmcamera_mfnr.so
 vendor/lib64/libmmcamera_mfnr_t4.so
 vendor/lib64/libmmcamera_pdpc.so
-vendor/lib64/libmorpho_ubwc.so;DISABLE_CHECKELF
+vendor/lib64/libmorpho_ubwc.so
 vendor/lib64/libmorpho_video_stabilizer.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libomp.so
@@ -1141,6 +1153,7 @@ vendor/lib64/vendor.xiaomi.hardware.bgservice@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.campostproc@1.0-service-impl.so
 vendor/lib64/vendor.xiaomi.hardware.campostproc@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.quickcamera@1.0.so
+
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP.b00
@@ -1272,14 +1285,37 @@ vendor/firmware/evautil64.b07
 vendor/firmware/evautil64.mdt
 
 # Display configs
-product/etc/displayconfig/display_id_4630946480857061762.xml
-product/etc/displayconfig/display_id_4630946545580055170.xml
 vendor/etc/display/qdcm_calib_data_xiaomi_36_02_0b_cmd_mode_dsc_dsi_panel.json
 vendor/etc/display/qdcm_calib_data_xiaomi_42_02_0a_cmd_mode_dsc_dsi_panel.json
 vendor/etc/display/qdcm_calib_data_xiaomi_42_02_0c_cmd_mode_dsc_dsi_panel.json
 vendor/etc/mdss_dsi_l9s_36_02_0b_mp_amoled_dsc_cmd_mi.xml
 vendor/etc/mdss_dsi_l9s_42_02_0a_mp_amoled_dsc_cmd_mi.xml
 vendor/etc/mdss_dsi_l9s_42_02_0c_mp_amoled_dsc_cmd_mi.xml
+vendor/lib64/libdisplayconfig.qti.so
+
+# Dolby Atmos
+vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
+vendor/etc/dolby/dax-default.xml
+vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
+vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
+vendor/lib/libdapparamstorage.so
+vendor/lib/libdeccfg.so
+vendor/lib/libstagefright_soft_ddpdec.so
+vendor/lib/libstagefrightdolby.so
+vendor/lib/soundfx/libhwdap.so
+vendor/lib/soundfx/libswgamedap.so
+vendor/lib/soundfx/libswvqe.so
+vendor/lib/vendor.dolby.hardware.dms@2.0.so
+vendor/lib64/libdapparamstorage.so
+vendor/lib64/libdeccfg.so
+vendor/lib64/libdlbdsservice.so
+vendor/lib64/libstagefright_soft_ddpdec.so
+vendor/lib64/libstagefrightdolby.so
+vendor/lib64/soundfx/libhwdap.so
+vendor/lib64/soundfx/libswgamedap.so
+vendor/lib64/soundfx/libswvqe.so
+vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
+vendor/lib64/vendor.dolby.hardware.dms@2.0.so
 
 # Fingerprint
 vendor/lib64/hw/fingerprint.goodix_fod.so:vendor/lib64/hw/fingerprint.goodix_fod.default.so;FIX_SONAME
@@ -1294,6 +1330,7 @@ vendor/firmware/a662_zap.b02
 vendor/firmware/a662_zap.elf
 vendor/firmware/a662_zap.mbn
 vendor/firmware/a662_zap.mdt
+vendor/firmware/gmu_gen70000.bin
 
 # NFC configs
 vendor/etc/libnfc-nci.conf
@@ -1400,6 +1437,14 @@ vendor/firmware/s3907_xiaomi_l9s_thrid_spi.img
 
 # Vibrator
 vendor/firmware/aw8622x_haptic.bin
+
+# Vibrator
+vendor/firmware/0_click_P_RTP.bin:vendor/etc/vibrator/effect_0.bin
+vendor/firmware/2_tick_P_RTP.bin:vendor/etc/vibrator/effect_2.bin
+vendor/firmware/3_thud_P_RTP.bin:vendor/etc/vibrator/effect_3.bin
+vendor/firmware/4_pop_P_RTP.bin:vendor/etc/vibrator/effect_4.bin
+vendor/firmware/5_heavyClick_P_RTP.bin:vendor/etc/vibrator/effect_5.bin
+
 
 # VPU firmware
 vendor/firmware/vpu20_4v.b00

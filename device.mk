@@ -10,8 +10,19 @@ $(call inherit-product, device/xiaomi/sm8450-common/common.mk)
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/ziyi/ziyi-vendor.mk)
 
+# Call the BCR setup
+$(call inherit-product, vendor/bcr/bcr.mk)
+
+# GMS
+$(call inherit-product, vendor/google/gms/config.mk)
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/display/display_id_4630946480857061762.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_id_4630946480857061762.xml \
+    $(LOCAL_PATH)/configs/display/display_id_4630946545580055170.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_id_4630946545580055170.xml
+
 # Overlay
 PRODUCT_PACKAGES += \
+    CarrierConfigResMiui \
     ApertureResZiyi \
     FrameworksResZiyi \
     NfcResZiyi \
@@ -21,6 +32,27 @@ PRODUCT_PACKAGES += \
     SystemUIResZiyi \
     WifiResZiyi \
     WifiResZiyiCN
+
+# Logging
+SPAMMY_LOG_TAGS := \
+    MiStcImpl \
+    SDM \
+    SDM-histogram \
+    SRE \
+    WifiHAL \
+    cnss-daemon \
+    libcitsensorservice@2.0-impl \
+    libsensor-displayalgo \
+    libsensor-parseRGB \
+    libsensor-ssccalapi \
+    sensors \
+    vendor.qti.hardware.display.composer-service \
+    vendor.xiaomi.sensor.citsensorservice@2.0-service
+
+ifneq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_VENDOR_PROPERTIES += \
+    $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=E)
+endif
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

@@ -22,6 +22,7 @@ PRODUCT_COPY_FILES += \
 
 # Overlay
 PRODUCT_PACKAGES += \
+    CarrierConfigResMiui \
     ApertureResZiyi \
     FrameworksResZiyi \
     NfcResZiyi \

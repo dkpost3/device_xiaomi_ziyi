@@ -1,6 +1,6 @@
 # OIS fix
 persist.camera.gyro.android=20
-#persist.camera.HAL3.enabled=1
+persist.camera.HAL3.enabled=1
 persist.camera.is_type=4
 persist.camera.ois.enable=1
 persist.camera.ois.video=1

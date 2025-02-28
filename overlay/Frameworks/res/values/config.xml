@@ -448,7 +448,7 @@
          non-zero. -->
     <integer name="config_defaultPeakRefreshRate">120</integer>
 
-    <!-- Whether device implements proximity sensor based checks to prevent
+   <!-- Whether device implements proximity sensor based checks to prevent
          accidental unlocks when the screen is off. -->
     <bool name="config_proximityCheckOnFpsUnlock">true</bool>
 
@@ -463,6 +463,7 @@
 
     <!-- Smart 5G -->
     <bool name="config_supportSmart5G">true</bool>
+
 
     <!-- Whether device supports sensor based doze customizations -->
     <bool name="config_dozePulseTilt">true</bool>

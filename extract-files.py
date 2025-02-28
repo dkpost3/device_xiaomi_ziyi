@@ -5,6 +5,7 @@
 #
 
 import extract_utils.tools
+extract_utils.tools.DEFAULT_PATCHELF_VERSION = '0_18'
 
 from extract_utils.fixups_blob import (
     blob_fixup,
@@ -38,18 +39,24 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+        'vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service': blob_fixup()
+            .add_needed('libstagefright_foundation-v33.so'),
+        'vendor/lib64/hw/audio.primary.taro.so': blob_fixup()
+            .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
     (
         'vendor/etc/camera/ziyi_enhance_motiontuning.xml',
         'vendor/etc/camera/ziyi_motiontuning.xml',
-    ): blob_fixup().regex_replace('xml=version', 'xml version'),
-    (
-        'vendor/etc/camera/pureShot_parameter.xml',
-        'vendor/etc/camera/pureView_parameter.xml',
-    ): blob_fixup().regex_replace(r'=([0-9]+)>', r'="\1">'),
+        ): blob_fixup().regex_replace('xml=version', 'xml version'),
+    'vendor/etc/camera/pureView_parameter.xml': blob_fixup().regex_replace(
+        r'=([0-9]+)>', r'="\1">'
+    ),
     'vendor/lib64/libcamximageformatutils.so': blob_fixup().replace_needed(
         'vendor.qti.hardware.display.config-V2-ndk_platform.so',
         'vendor.qti.hardware.display.config-V2-ndk.so',
     ),
+    (
+        'vendor/lib64/vendor.qti.hardware.qxr-V1-ndk_platform.so',
+    ): blob_fixup().add_needed('shim_camera.so'),
 }
 
 module = ExtractUtilsModule(

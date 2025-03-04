@@ -46,8 +46,7 @@ blob_fixups: blob_fixups_user_type = {
     (
         'vendor/etc/camera/ziyi_enhance_motiontuning.xml',
         'vendor/etc/camera/ziyi_motiontuning.xml',
-        ): blob_fixup().regex_replace('xml=version', 'xml version'),
-
+    ): blob_fixup().regex_replace('xml=version', 'xml version'),
     'vendor/etc/camera/pureView_parameter.xml': blob_fixup().regex_replace(
         r'=([0-9]+)>', r'="\1">'
     ),
@@ -56,9 +55,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor.qti.hardware.display.config-V2-ndk.so',
     ),
     (
-        'vendor/lib64/vendor.qti.hardware.qxr-V1-ndk_platform.so',
-    ): blob_fixup().add_needed('shim_camera.so'),
-=======
         'vendor/lib64/libalAILDC.so',
         'vendor/lib64/libTrueSight.so',
         'vendor/lib64/libalLDC.so',
@@ -71,7 +67,6 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock')
         .clear_symbol_version('AHardwareBuffer_isSupported'),
-
 }
 
 module = ExtractUtilsModule(

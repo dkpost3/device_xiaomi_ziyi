@@ -10,9 +10,33 @@ $(call inherit-product, device/xiaomi/sm8450-common/common.mk)
 # Inherit from the proprietary version
 $(call inherit-product, vendor/xiaomi/ziyi/ziyi-vendor.mk)
 
+# Call the BCR setup
+$(call inherit-product, vendor/bcr/bcr.mk)
+
+# MIUI CAMERA
+$(call inherit-product-if-exists, device/xiaomi/miuicamera-ziyi/device.mk)
+
+# GMS
+$(call inherit-product-if-exists, vendor/google/gms/config.mk)
+
+# Audio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
+    $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/display/display_id_4630946480857061762.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_id_4630946480857061762.xml \
+    $(LOCAL_PATH)/configs/display/display_id_4630946545580055170.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_id_4630946545580055170.xml
+
+# init
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/init/init.ziyi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.ziyi.rc
+
 # Overlay
 PRODUCT_PACKAGES += \
     ApertureResZiyi \
+    ZiyiEuiccOverlay \
+    XiaomiEuicc \
     FrameworksResZiyi \
     NfcResZiyi \
     SettingsProviderResZiyi \
@@ -21,6 +45,38 @@ PRODUCT_PACKAGES += \
     SystemUIResZiyi \
     WifiResZiyi \
     WifiResZiyiCN
+
+PRODUCT_PRODUCT_PROPERTIES += \
+    setupwizard.feature.esim_enabled=true
+    ro.setupwizard.rotation_locked=true \
+    setupwizard.feature.baseline_setupwizard_enabled=true \
+    setupwizard.feature.day_night_mode_enabled=true \
+    setupwizard.feature.portal_notification=true \
+    setupwizard.feature.show_pixel_tos=true \
+    setupwizard.feature.show_support_link_in_deferred_setup=true \
+    ro.setupwizard.enterprise_mode=1
+
+# Logging
+SPAMMY_LOG_TAGS := \
+    MiStcImpl \
+    SDM \
+    SDM-histogram \
+    SRE \
+    SensorService \
+    WifiHAL \
+    cnss-daemon \
+    libcitsensorservice@2.0-impl \
+    libsensor-displayalgo \
+    libsensor-parseRGB \
+    libsensor-ssccalapi \
+    sensors \
+    vendor.qti.hardware.display.composer-service \
+    vendor.xiaomi.sensor.citsensorservice@2.0-service
+
+ifneq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_VENDOR_PROPERTIES += \
+    $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=E)
+endif
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \

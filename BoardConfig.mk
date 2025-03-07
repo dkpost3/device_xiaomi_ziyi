@@ -4,16 +4,19 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+DEVICE_PATH := device/xiaomi/ziyi
+
 # Light
 TARGET_SENSOR_NOTIFIER_EXT := //device/xiaomi/ziyi:libsensor-notifier-ext-light
 
 # Inherit from xiaomi sm8450-common
 include device/xiaomi/sm8450-common/BoardConfigCommon.mk
 
-# Inherit from the proprietary version
-include vendor/xiaomi/ziyi/BoardConfigVendor.mk
+# Inherit from proprietary files for miuicamera
+-include device/xiaomi/miuicamera-ziyi/BoardConfig.mk
 
-DEVICE_PATH := device/xiaomi/ziyi
+# GMS
+-include vendor/google/gms/BoardConfigVendor.mk
 
 # Kernel
 device_second_stage_modules := \
@@ -47,3 +50,12 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/properties/vendor.prop
 
 # Screen density
 TARGET_SCREEN_DENSITY := 440
+
+# Recovery
+TARGET_RECOVERY_UI_MARGIN_HEIGHT := 120
+
+# Camera - Miui
+TARGET_CAMERA_PACKAGE_NAME := com.android.camera
+
+# Inherit from the proprietary version
+include vendor/xiaomi/ziyi/BoardConfigVendor.mk

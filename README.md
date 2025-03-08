@@ -22,3 +22,4 @@ Front camera | 32MP wide angle (China) / 8MP depth (Global), 32MP ultra wide-ang
 ## Device picture
 
 ![Xiaomi 13 Lite](https://i01.appmifile.com/v1/MI_18455B3E4DA706226CF7535A58E875F0267/pms_1677070169.44662436.png "Xiaomi 13 Lite in black")
+# test

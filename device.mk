@@ -17,12 +17,7 @@ $(call inherit-product, vendor/bcr/bcr.mk)
 $(call inherit-product-if-exists, device/xiaomi/miuicamera-ziyi/device.mk)
 
 # GMS
-$(call inherit-product-if-exists, vendor/google/gms/config.mk)
-
-# Audio
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio/default_volume_tables.xml:$(TARGET_COPY_OUT_VENDOR)/etc/default_volume_tables.xml \
-    $(LOCAL_PATH)/configs/audio/audio_policy_volumes.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_volumes.xml
+$(call inherit-product-if-exists, vendor/gms/products/gms.mk)
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/display/display_id_4630946480857061762.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/displayconfig/display_id_4630946480857061762.xml \
@@ -36,7 +31,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     ApertureResZiyi \
     ZiyiEuiccOverlay \
-    XiaomiEuicc \
     FrameworksResZiyi \
     NfcResZiyi \
     SettingsProviderResZiyi \
@@ -45,6 +39,9 @@ PRODUCT_PACKAGES += \
     SystemUIResZiyi \
     WifiResZiyi \
     WifiResZiyiCN
+
+PRODUCT_PACKAGES += \
+    XiaomiEuicc
 
 PRODUCT_PRODUCT_PROPERTIES += \
     setupwizard.feature.esim_enabled=true

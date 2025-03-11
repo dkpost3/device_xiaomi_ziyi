@@ -39,23 +39,19 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
-     (
-        'vendor/lib64/hw/audio.primary.taro.so',
-        'vendor/lib/libstagefright_soft_ddpdec.so',
-        'vendor/lib/libstagefright_soft_ac4dec.so',
-        'vendor/lib64/libstagefright_soft_ddpdec.so',
-        'vendor/lib64/libstagefright_soft_ac4dec.so'
-    ): blob_fixup()
-        .replace_needed(
-              'libstagefright_foundation.so',
-              'libstagefright_foundation-v33.so'
-    ),
+    'vendor/lib64/hw/audio.primary.taro.so': blob_fixup()
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),
     (
         'vendor/etc/camera/ziyi_enhance_motiontuning.xml',
-        'vendor/etc/camera/ziyi_motiontuning.xml'
+        'vendor/etc/camera/ziyi_motiontuning.xml',
         ): blob_fixup().regex_replace('xml=version', 'xml version'),
-        'vendor/etc/camera/pureView_parameter.xml': blob_fixup().regex_replace(
-        r'=([0-9]+)>', r'="\1">'
+    (
+        'vendor/etc/camera/pureShot_parameter.xml',
+        'vendor/etc/camera/pureView_parameter.xml',
+    ): blob_fixup().regex_replace(r'=([0-9]+)>', r'="\1">'),
+    'vendor/lib64/hw/fingerprint.goodix_fod.default.so': blob_fixup().binary_regex_replace(
+        b'/sys/class/touch/touch_dev/fod_press_status',
+        b'/sys/class/touch/touch_dev/fod_finger_state'
     ),
         'vendor/lib64/libcamximageformatutils.so': blob_fixup().replace_needed(
         'vendor.qti.hardware.display.config-V2-ndk_platform.so',
@@ -63,16 +59,14 @@ blob_fixups: blob_fixups_user_type = {
     ),
     (
         'vendor/bin/hw/dolbycodec2',
-        'vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service'
+        'vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service',
     ): blob_fixup()
         .add_needed('libstagefright_foundation-v33.so'),
     (
         'vendor/lib/c2.dolby.client.so',
-        'vendor/lib64/c2.dolby.client.so'
+        'vendor/lib64/c2.dolby.client.so',
     ): blob_fixup()
         .add_needed('libcodec2_hidl_shim.so'),
-    'vendor/lib64/vendor.qti.hardware.qxr-V1-ndk_platform.so': blob_fixup()
-        .add_needed('qxr_shim.so'),
 }
 
 module = ExtractUtilsModule(

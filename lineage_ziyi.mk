@@ -12,13 +12,10 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # stuff
 WITH_GMS := true
-#TARGET_BUILD_APERTURE_CAMERA := false
-TARGET_BUILD_GOOGLE_TELEPHONY := true
 TARGET_BOOT_ANIMATION_RES := 1080
-#TARGET_SHIPS_FULL_GAPPS := true
 TARGET_DISABLE_EPPE := true
 TARGET_SUPPORTS_BLUR := true
-TARGET_SHIPS_MIUI := true
+#TARGET_BUILD_APERTURE_CAMERA := false
 
 # Device identifier. This must come after all inclusions
 PRODUCT_NAME := lineage_ziyi

@@ -101,13 +101,10 @@ vendor/lib/rfsa/adsp/misound_res_spk.bin
 vendor/lib/rfsa/adsp/misound_res_spk4ch.bin
 
 # Audio configs
-vendor/etc/audio/sku_diwali/audio_effects.conf
 vendor/etc/audio/sku_diwali/mixer_paths_diwali_idp.xml
-vendor/etc/audio/sku_diwali/mixer_paths_diwali_idp_sku1.xml
 vendor/etc/audio/sku_diwali/mixer_paths_overlay_dynamic.xml
 vendor/etc/audio/sku_diwali/mixer_paths_overlay_static.xml
 vendor/etc/audio/sku_diwali/resourcemanager_diwali_idp.xml
-vendor/etc/audio/sku_diwali/resourcemanager_diwali_idp_sku1.xml
 vendor/etc/audio/sku_diwali/resourcemanager_upd.xml
 vendor/etc/audio_cloud_control_white_list.xml
 vendor/etc/audio_policy_engine_configuration_mi.xml:vendor/etc/audio_policy_engine_configuration.xml
@@ -166,6 +163,7 @@ vendor/bin/hw/vendor.qti.camera.provider@2.7-service_64
 vendor/bin/hw/android.hardware.camera.provider@2.7-virtual-camera-service
 vendor/bin/hw/vendor.xiaomi.hardware.quickcamera@1.0-service
 vendor/etc/init/vendor.qti.camera.provider@2.7-service_64.rc
+vendor/etc/init/android.hardware.camera.provider@2.7-virtual-camera-service.rc
 vendor/etc/vintf/manifest/vendor.xiaomi.hardware.quickcamera@1.0-service.xml
 vendor/etc/camera/102_SummerDay.png
 vendor/etc/camera/103_Fantasy.png
@@ -1222,46 +1220,44 @@ vendor/firmware/CAMERA_ICP_480.elf
 # Camera sensors
 vendor/lib64/camera/com.qti.actuator.ziyi_sunny_imx766_gt9764_back_actuator_i.so
 vendor/lib64/camera/com.qti.actuator.ziyi_sunny_imx766_gt9764_back_actuator_ii.so
+vendor/lib64/camera/com.qti.actuator.ziyi_sunny_s5kgd2_dw9800v_front_actuator_i.so
 vendor/lib64/camera/com.qti.eeprom.ziyi_aac_hi846w_gt24p64e_front_ultra_eeprom_i.so
 vendor/lib64/camera/com.qti.eeprom.ziyi_aac_s5kgd2_gt24p64e_front_eeprom_i.so
 vendor/lib64/camera/com.qti.eeprom.ziyi_aac_s5kgd2sm03_gt24p64e_front_eeprom_i.so
 vendor/lib64/camera/com.qti.eeprom.ziyi_ofilm_gc02m1_p24c64f_macro_eeprom_i.so
 vendor/lib64/camera/com.qti.eeprom.ziyi_ofilm_imx355_gt24p64e_ultra_eeprom_i.so
+vendor/lib64/camera/com.qti.eeprom.ziyi_ofilm_imx376k_p24c64f_ultra_i_eeprom_i.so
 vendor/lib64/camera/com.qti.eeprom.ziyi_sunny_imx766_gt24p128f_wide_eeprom_i.so
 vendor/lib64/camera/com.qti.eeprom.ziyi_sunny_imx766_gt24p128f_wide_eeprom_ii.so
+vendor/lib64/camera/com.qti.eeprom.ziyi_sunny_s5kgd2_p24c64f_front_eeprom_i.so
 vendor/lib64/camera/com.qti.sensor.ziyi_aac_hi846w_front_ultra_i.so
 vendor/lib64/camera/com.qti.sensor.ziyi_aac_s5kgd2_front_i.so
 vendor/lib64/camera/com.qti.sensor.ziyi_aac_s5kgd2sm03_front_i.so
 vendor/lib64/camera/com.qti.sensor.ziyi_ofilm_gc02m1_macro_i.so
 vendor/lib64/camera/com.qti.sensor.ziyi_ofilm_imx355_ultra_i.so
+vendor/lib64/camera/com.qti.sensor.ziyi_ofilm_imx376k_ultra_i.so
 vendor/lib64/camera/com.qti.sensor.ziyi_sunny_imx766_wide_i.so
 vendor/lib64/camera/com.qti.sensor.ziyi_sunny_imx766_wide_ii.so
+vendor/lib64/camera/com.qti.sensor.ziyi_sunny_s5kgd2_front_i.so
 vendor/lib64/camera/com.qti.sensormodule.ziyi_aac_hi846w_front_ultra_i.bin
 vendor/lib64/camera/com.qti.sensormodule.ziyi_aac_s5kgd2_front_i.bin
 vendor/lib64/camera/com.qti.sensormodule.ziyi_aac_s5kgd2sm03_front_i.bin
 vendor/lib64/camera/com.qti.sensormodule.ziyi_ofilm_gc02m1_macro_i.bin
 vendor/lib64/camera/com.qti.sensormodule.ziyi_ofilm_imx355_ultra_i.bin
+vendor/lib64/camera/com.qti.sensormodule.ziyi_ofilm_imx376k_ultra_i.bin
 vendor/lib64/camera/com.qti.sensormodule.ziyi_sunny_imx766_wide_i.bin
 vendor/lib64/camera/com.qti.sensormodule.ziyi_sunny_imx766_wide_ii.bin
+vendor/lib64/camera/com.qti.sensormodule.ziyi_sunny_s5kgd2_front_i.bin
 vendor/lib64/camera/com.qti.tuned.default.bin
 vendor/lib64/camera/com.qti.tuned.ziyi_aac_hi846w_front_ultra_i.bin
 vendor/lib64/camera/com.qti.tuned.ziyi_aac_s5kgd2_front_i.bin
 vendor/lib64/camera/com.qti.tuned.ziyi_aac_s5kgd2sm03_front_i.bin
 vendor/lib64/camera/com.qti.tuned.ziyi_ofilm_gc02m1_macro_i.bin
 vendor/lib64/camera/com.qti.tuned.ziyi_ofilm_imx355_ultra_i.bin
+vendor/lib64/camera/com.qti.tuned.ziyi_ofilm_imx376k_ultra_i.bin
 vendor/lib64/camera/com.qti.tuned.ziyi_sunny_imx766_wide_i.bin
 vendor/lib64/camera/com.qti.tuned.ziyi_sunny_imx766_wide_ii.bin
-
-# Camera sensors (CN) - from HyperOS V816.0.4.0.ULLCNXM
-vendor/lib64/camera/com.qti.actuator.ziyi_sunny_s5kgd2_dw9800v_front_actuator_i.so|077a2e7d974751b3251a05249c57b7a11edca6fa
-vendor/lib64/camera/com.qti.eeprom.ziyi_ofilm_imx376k_p24c64f_ultra_i_eeprom_i.so|4eeeb89fc1bec52b2b7943fdce87ab2aa5cb85af
-vendor/lib64/camera/com.qti.eeprom.ziyi_sunny_s5kgd2_p24c64f_front_eeprom_i.so|4603caa8ecf718b52eca0bb5aa8f9284534f5c71
-vendor/lib64/camera/com.qti.sensor.ziyi_ofilm_imx376k_ultra_i.so|883e94ec98cb77af745bc0bb84c707f004c27081
-vendor/lib64/camera/com.qti.sensor.ziyi_sunny_s5kgd2_front_i.so|e2365f6fea01bf3d894e4d409524179cc383937b
-vendor/lib64/camera/com.qti.sensormodule.ziyi_ofilm_imx376k_ultra_i.bin|50d23941b288ce880983c33889c72708ac210908
-vendor/lib64/camera/com.qti.sensormodule.ziyi_sunny_s5kgd2_front_i.bin|44c5c0959c12e4e52e82d6b5cb71bfbc5734ff7b
-vendor/lib64/camera/com.qti.tuned.ziyi_ofilm_imx376k_ultra_i.bin|242f3af81aa53a7b6af649d8c150e6a9ecdb1677
-vendor/lib64/camera/com.qti.tuned.ziyi_sunny_s5kgd2_front_i.bin|d24d66a06ac10c8cabe366699c26a138fdb780eb
+vendor/lib64/camera/com.qti.tuned.ziyi_sunny_s5kgd2_front_i.bin
 
 # Computer vision firmware
 vendor/firmware/evass-lt-21.b00
@@ -1337,15 +1333,16 @@ vendor/etc/display/qdcm_calib_data_nt36672e_lcd_video_mode_dsi_novatek_panel_wit
 vendor/etc/display/qdcm_calib_data_xiaomi_36_02_0b_cmd_mode_dsc_dsi_panel.json
 vendor/etc/display/qdcm_calib_data_xiaomi_42_02_0a_cmd_mode_dsc_dsi_panel.json
 vendor/etc/display/qdcm_calib_data_xiaomi_42_02_0c_cmd_mode_dsc_dsi_panel.json
-vendor/etc/mdss_dsi_l9s_36_02_0b_mp_amoled_dsc_cmd_mi.xml|4b3442c8db216c7fe27877c4dc0aa9946697641c
-vendor/etc/mdss_dsi_l9s_42_02_0a_mp_amoled_dsc_cmd_mi.xml|bca5983f20b8f0f724471fddc30a9951511cba96
-vendor/etc/mdss_dsi_l9s_42_02_0c_mp_amoled_dsc_cmd_mi.xml|bca5983f20b8f0f724471fddc30a9951511cba96
+vendor/etc/mdss_dsi_l9s_36_02_0b_mp_amoled_dsc_cmd_mi.xml
+vendor/etc/mdss_dsi_l9s_42_02_0a_mp_amoled_dsc_cmd_mi.xml
+vendor/etc/mdss_dsi_l9s_42_02_0c_mp_amoled_dsc_cmd_mi.xml
 vendor/lib64/libdisplayconfig.qti.so
 
 # Dolby Atmos
 vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
 vendor/etc/dolby/dax-default.xml
 vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
+vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
 vendor/lib/libdapparamstorage.so
 vendor/lib/libdeccfg.so
 vendor/lib/libstagefright_soft_ddpdec.so
@@ -1356,6 +1353,7 @@ vendor/lib/soundfx/libswgamedap.so
 vendor/lib/soundfx/libswvqe.so
 vendor/lib/vendor.dolby.hardware.dms@2.0.so
 vendor/lib64/libdapparamstorage.so
+vendor/lib64/libdlbpreg.so
 vendor/lib64/libdeccfg.so
 vendor/lib64/libdlbdsservice.so
 vendor/lib64/libstagefright_soft_ddpdec.so
@@ -1369,8 +1367,8 @@ vendor/lib64/vendor.dolby.hardware.dms@2.0.so
 
 # Dolby
 vendor/bin/hw/dolbycodec2
-vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc
 vendor/etc/media_codecs_with_dolby_diwali.xml
+vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc
 vendor/lib/c2.dolby.avc.dec.so
 vendor/lib/c2.dolby.avc.sec.dec.so
 vendor/lib/c2.dolby.client.so
@@ -1414,71 +1412,6 @@ vendor/firmware/gmu_gen70000.bin
 vendor/etc/libnfc-nci.conf
 vendor/etc/libnfc-nxp.conf
 vendor/etc/libnfc-nxp_RF.conf:vendor/libnfc-nxp_RF.conf
-
-# QVR
-vendor/bin/qvrdatalogger
-vendor/bin/qvrservicetest
-vendor/bin/qvrservicetest64
-vendor/etc/init/qvrd_vndr.rc
-vendor/etc/qvr/cfg/339/0/65536/mtp855.txt
-vendor/etc/qvr/cfg/339/0/65536/mtp855_6dof_config.xml
-vendor/etc/qvr/cfg/356/0/65536/mtp865.txt
-vendor/etc/qvr/cfg/356/0/65536/mtp865_6dof_config.xml
-vendor/etc/qvr/cfg/356/1/131072/morpheus.txt
-vendor/etc/qvr/cfg/356/1/131072/morpheus_6dof_config.xml
-vendor/etc/qvr/cfg/356/1/65536/trinity.txt
-vendor/etc/qvr/cfg/356/1/65536/trinity_6dof_config.xml
-vendor/etc/qvr/cfg/415/0/131072/mtplahaina.txt
-vendor/etc/qvr/cfg/415/0/131072/mtplahaina_6dof_config.xml
-vendor/etc/qvr/cfg/415/0/65536/mtplahaina.txt
-vendor/etc/qvr/cfg/415/0/65536/mtplahaina_6dof_config.xml
-vendor/etc/qvr/cfg/457/0/65536/mtpwaipio.txt
-vendor/etc/qvr/cfg/457/0/65536/mtpwaipio_6dof_config.xml
-vendor/etc/qvr/cfg/457/0/65536/mtpwaipio_qvr_3dof_tracker_config.txt
-vendor/etc/qvr/cfg/457/0/65537/mtpwaipio.txt
-vendor/etc/qvr/cfg/457/0/65537/mtpwaipio_6dof_config.xml
-vendor/etc/qvr/cfg/457/0/65537/mtpwaipio_qvr_3dof_tracker_config.txt
-vendor/etc/qvr/cfg/457/3/65536/mtpwaipio.txt
-vendor/etc/qvr/cfg/457/3/65536/mtpwaipio_6dof_config.xml
-vendor/etc/qvr/cfg/457/3/65536/mtpwaipio_qvr_3dof_tracker_config.txt
-vendor/etc/qvr/cfg/457/3/65537/mtpwaipio.txt
-vendor/etc/qvr/cfg/457/3/65537/mtpwaipio_6dof_config.xml
-vendor/etc/qvr/cfg/457/3/65537/mtpwaipio_qvr_3dof_tracker_config.txt
-vendor/etc/qvr/tuning/qvrservice_abf10238_tuning.json
-vendor/etc/qvr/tuning/qvrservice_asf10338a_tuning.json
-vendor/etc/qvr/tuning/qvrservice_asf10338b_tuning.json
-vendor/etc/qvr/tuning/qvrservice_bbf10138_tuning.json
-vendor/etc/qvr/tuning/qvrservice_br015b_tuning.json
-vendor/etc/qvr/tuning/qvrservice_imx476_tuning.json
-vendor/etc/qvr/tuning/qvrservice_obf2259_tuning.json
-vendor/etc/qvr/tuning/qvrservice_obf2260_tuning.json
-vendor/etc/qvr/tuning/qvrservice_ov7251_tuning.json
-vendor/etc/qvr/tuning/qvrservice_ov9282_tuning.json
-vendor/etc/qvr/tuning/qvrservice_v4l_ov7251_tuning.json
-vendor/etc/qvr/qvr_hid_device_list.txt
-vendor/etc/qvr/qvr_usb_device_list.txt
-vendor/etc/qvr/qvrservice_config.txt
-vendor/etc/seccomp_policy/qvr@2.0.policy
-vendor/lib/libStereoRectifyWrapper.so
-vendor/lib/libhalide_hexagon_host.so
-vendor/lib/libqvrcamera_client.qti.so
-vendor/lib/libqvrservice_client.qti.so
-vendor/lib64/libDspIOProxy_stub.so
-vendor/lib64/libMapService.so
-vendor/lib64/libScenescape.so
-vendor/lib64/libStereoRectifyWrapper.so
-vendor/lib64/libeye_tracking_dsp_sample_stub.so
-vendor/lib64/libhalide_hexagon_host.so
-vendor/lib64/libqvr_cam_cdsp_driver_stub.so
-vendor/lib64/libqvr_cdsp_driver_stub.so
-vendor/lib64/libqvr_eyetracking_plugin.so
-vendor/lib64/libqvrcamera_client.qti.so
-vendor/lib64/libqvrservice_client.qti.so
-vendor/lib64/libtracker_6dof_impl.so
-
-# QXR
-vendor/etc/vintf/manifest/vendor.qti.hardware.qxr-service.xml
-vendor/lib64/vendor.qti.hardware.qxr-V1-ndk_platform.so
 
 # Sensors
 vendor/etc/sensors/config/ak991x_dri_0.json

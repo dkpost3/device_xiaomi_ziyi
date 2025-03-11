@@ -16,7 +16,7 @@ include device/xiaomi/sm8450-common/BoardConfigCommon.mk
 -include device/xiaomi/miuicamera-ziyi/BoardConfig.mk
 
 # GMS
--include vendor/google/gms/BoardConfigVendor.mk
+-include vendor/gms/products/board.mk
 
 # Kernel
 device_second_stage_modules := \

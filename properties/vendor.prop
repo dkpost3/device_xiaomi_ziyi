@@ -1,6 +1,10 @@
 # Chipset
 ro.soc.manufacturer=QTI
 
+# dolby
+ro.vendor.audio.dolby.vision.support=true
+ro.vendor.display.dolbyvision.support=true
+
 # Fingerprint
 persist.vendor.fingerprint.type=udfps_optical
 persist.vendor.fingerprint.sensor_location=540|2163|95
